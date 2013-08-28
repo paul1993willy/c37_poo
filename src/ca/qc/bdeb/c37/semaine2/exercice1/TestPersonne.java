@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package ca.qc.bdeb.c37.semaine2.exercice1;
+import ca.qc.bdeb.c37.semaine2.exercice2.Employe;
 
 /**
  *
