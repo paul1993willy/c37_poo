@@ -1,6 +1,11 @@
-*.class
-
 # Package Files #
+nbproject/private
+build/
+nbbuild
+nbactions.xml
+nb-configuration.xml
+
+*.class
 *.jar
 *.war
 *.ear
