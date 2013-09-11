@@ -86,4 +86,17 @@ public class Fraction
 		fractionB.setNumerateur(-fractionB.getNumerateur());
 		return this.plus(fractionB);
 	}
+
+	/**
+	 * @param {Fraction} fractionB
+	 * @return Fraction
+	 */
+	public Fraction mult(Fraction fractionB)
+	{
+		Fraction fractionResultat = new Fraction();
+
+		fractionResultat.setNumerateur(this.getNumerateur() * fractionB.getNumerateur())
+			.setDenominateur(this.getDenominateur() * fractionB.getDenominateur());
+		return fractionResultat;
+	}
 }
