@@ -77,6 +77,10 @@ public class Fraction
 		return fractionResultat;
 	}
 
+	/**
+	 * @param {Fraction} fractionB
+	 * @return Fraction
+	 */
 	public Fraction moins(Fraction fractionB)
 	{
 		fractionB.setNumerateur(-fractionB.getNumerateur());
