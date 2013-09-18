@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JAppletFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="bEffacer" max="32767" attributes="0"/>
+                  <Component id="tfResultat" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="bSoustraction" alignment="0" max="32767" attributes="0"/>
+                          <Component id="bAddition" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lFractionUn" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tfFractionUn" min="-2" pref="90" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lFractionDeux" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tfFractionDeux" min="-2" pref="90" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="bMultiplication" min="-2" pref="192" max="-2" attributes="0"/>
+                          <Component id="bDivision" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tfResultat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tfFractionUn" max="32767" attributes="0"/>
+                      <Component id="lFractionUn" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tfFractionDeux" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lFractionDeux" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bAddition" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bMultiplication" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bSoustraction" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bDivision" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="bEffacer" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="tfResultat">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lFractionUn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fraction1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfFractionUn">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfFractionUnActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfFractionUnFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfFractionDeux">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfFractionDeuxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lFractionDeux">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fraction2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bAddition">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Addition"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bSoustraction">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Soustraction"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bMultiplication">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Multiplication"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMultiplicationActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bDivision">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Division"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="bEffacer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Effacer"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
