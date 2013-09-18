@@ -78,28 +78,33 @@ public class Calculatrice extends javax.swing.JApplet {
 
         lFractionUn.setText("Fraction1");
 
-        tfFractionUn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFractionUnActionPerformed(evt);
-            }
-        });
         tfFractionUn.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfFractionUnFocusLost(evt);
             }
         });
 
-        tfFractionDeux.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFractionDeuxActionPerformed(evt);
+        tfFractionDeux.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfFractionDeuxFocusLost(evt);
             }
         });
 
         lFractionDeux.setText("Fraction2");
 
         bAddition.setText("Addition");
+        bAddition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAdditionActionPerformed(evt);
+            }
+        });
 
         bSoustraction.setText("Soustraction");
+        bSoustraction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSoustractionActionPerformed(evt);
+            }
+        });
 
         bMultiplication.setText("Multiplication");
         bMultiplication.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +114,18 @@ public class Calculatrice extends javax.swing.JApplet {
         });
 
         bDivision.setText("Division");
+        bDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDivisionActionPerformed(evt);
+            }
+        });
 
         bEffacer.setText("Effacer");
+        bEffacer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEffacerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,23 +181,39 @@ public class Calculatrice extends javax.swing.JApplet {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfFractionUnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFractionUnActionPerformed
-    }//GEN-LAST:event_tfFractionUnActionPerformed
-
-    private void tfFractionDeuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFractionDeuxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFractionDeuxActionPerformed
-
     private void bMultiplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMultiplicationActionPerformed
-        // TODO add your handling code here:
+		this.tfResultat.setText(this.fractionUn.mult(fractionDeux).toString());
     }//GEN-LAST:event_bMultiplicationActionPerformed
 
     private void tfFractionUnFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfFractionUnFocusLost
-        // TODO add your handling code here:
-		try {
-			this.fractionA = new Fraction(tfFractionUn.getText().split("/", 2));
-		}
+		javax.swing.JTextField controle = (javax.swing.JTextField) evt.getSource();
+		this.fractionUn = new Fraction(controle.getText());
     }//GEN-LAST:event_tfFractionUnFocusLost
+
+    private void bAdditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdditionActionPerformed
+        this.tfResultat.setText(this.fractionUn.plus(fractionDeux).toString());
+    }//GEN-LAST:event_bAdditionActionPerformed
+
+    private void bSoustractionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSoustractionActionPerformed
+        this.tfResultat.setText(this.fractionUn.moins(fractionDeux).toString());
+    }//GEN-LAST:event_bSoustractionActionPerformed
+
+    private void tfFractionDeuxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfFractionDeuxFocusLost
+		javax.swing.JTextField controle = (javax.swing.JTextField) evt.getSource();
+		this.fractionDeux = new Fraction(controle.getText());
+    }//GEN-LAST:event_tfFractionDeuxFocusLost
+
+    private void bEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEffacerActionPerformed
+		tfResultat.setText(null);
+		tfFractionUn.setText(null);
+		tfFractionDeux.setText(null);
+		this.fractionUn = new Fraction();
+		this.fractionDeux = new Fraction();
+    }//GEN-LAST:event_bEffacerActionPerformed
+
+    private void bDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDivisionActionPerformed
+		this.tfResultat.setText(this.fractionUn.div(fractionDeux).toString());
+    }//GEN-LAST:event_bDivisionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAddition;
