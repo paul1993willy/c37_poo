@@ -9,7 +9,7 @@ import ca.qc.bdeb.c37.semaine3.exercice3.Fraction;
  *
  * @author paulwillyjean
  */
-public class Calculatrice extends javax.swing.JApplet {
+public class JAppletFraction extends javax.swing.JApplet {
 
 	Fraction fractionUn = new Fraction();
 	Fraction fractionDeux = new Fraction();
@@ -32,13 +32,13 @@ public class Calculatrice extends javax.swing.JApplet {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(Calculatrice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(JAppletFraction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(Calculatrice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(JAppletFraction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(Calculatrice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(JAppletFraction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(Calculatrice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(JAppletFraction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 		//</editor-fold>
 
