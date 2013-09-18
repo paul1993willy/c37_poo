@@ -100,6 +100,44 @@ public class Fraction
 
 		fractionResultat.setNumerateur(this.getNumerateur() * fractionB.getNumerateur())
 			.setDenominateur(this.getDenominateur() * fractionB.getDenominateur());
-		return fractionResultat;
+		return fractionResultat.reduire();
+	}
+
+	public Fraction div(Fraction fractionB) {
+		Fraction fractionBInversee = new Fraction(fractionB.getDenominateur(), fractionB.getNumerateur());
+		return this.mult(fractionBInversee);
+	}
+
+	/**
+	 * Simplifie la fraction à sa forme irréductible
+	 * @return Fraction
+	 */
+	public Fraction reduire() {
+		int plusPetiteValeur = Math.min(Math.abs(this.getNumerateur()), Math.abs(this.getDenominateur()));
+
+		/*
+		 * Décrémente le plus grand diviseur commun s'il laisse
+		 * un reste en divisant le numérateur ou le dénominateur
+		 */
+		for(int i = plusPetiteValeur; i > 1; i--) {
+			// S'assure que le plus grand diviseur commun ne laisse aucun reste
+			if((this.getDenominateur() % i == 0) && (this.getNumerateur() % i == 0)) {
+				this.setDenominateur(this.getDenominateur() / i);
+				this.setNumerateur(this.getNumerateur() / i);
+				return this;
+			}
+		}
+
+		// Retourne la fraction telle quelle si elle est irréductible
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return this.getNumerateur() + "/" + this.getDenominateur();
+	}
+
+	public double toDouble() {
+		return (double) this.getNumerateur() / (double) this.getDenominateur();
 	}
 }
