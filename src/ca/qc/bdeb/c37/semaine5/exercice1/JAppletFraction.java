@@ -4,6 +4,7 @@
  */
 package ca.qc.bdeb.c37.semaine5.exercice1;
 import ca.qc.bdeb.c37.semaine3.exercice3.Fraction;
+import javax.swing.*;
 
 /**
  *
@@ -54,6 +55,18 @@ public class JAppletFraction extends javax.swing.JApplet {
 		}
 	}
 
+	public static void main(String[] args) {
+		JApplet applet = new JAppletFraction();
+		JFrame frame = new JFrame("Interface graphique utilisant la classe fraction");
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(applet);
+		frame.setBounds(100, 100, 400, 350);
+
+		applet.init();
+		applet.start();
+		frame.setVisible(true);
+	}
 	/**
 	 * This method is called from within the init() method to initialize the
 	 * form. WARNING: Do NOT modify this code. The content of this method is
