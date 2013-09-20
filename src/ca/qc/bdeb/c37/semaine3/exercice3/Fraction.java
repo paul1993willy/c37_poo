@@ -86,8 +86,8 @@ public class Fraction
 	 * @return Fraction
 	 */
 	public Fraction moins(Fraction fractionB) {
-		fractionB.setNumerateur(-fractionB.getNumerateur());
-		return this.plus(fractionB);
+		Fraction fractionBCopie = new Fraction(-fractionB.getNumerateur(), fractionB.getDenominateur());
+		return this.plus(fractionBCopie);
 	}
 
 	/**
