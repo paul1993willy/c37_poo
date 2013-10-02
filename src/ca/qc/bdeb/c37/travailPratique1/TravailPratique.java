@@ -4,6 +4,8 @@
  */
 package ca.qc.bdeb.c37.travailPratique1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 1022680
@@ -31,6 +33,13 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuItemRedemarrer = new javax.swing.JMenuItem();
         jMenuBarNiveau = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItemScores = new javax.swing.JMenuItem();
         jMenuItemQuitter = new javax.swing.JMenuItem();
         jMenuBarAide = new javax.swing.JMenu();
@@ -49,6 +58,27 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuItem1.setText("3 X 3");
         jMenuBarNiveau.add(jMenuItem1);
 
+        jMenuItem2.setText("4 X 4");
+        jMenuBarNiveau.add(jMenuItem2);
+
+        jMenuItem3.setText("5 X 5");
+        jMenuBarNiveau.add(jMenuItem3);
+
+        jMenuItem4.setText("6 X 6");
+        jMenuBarNiveau.add(jMenuItem4);
+
+        jMenuItem5.setText("7 X 7");
+        jMenuBarNiveau.add(jMenuItem5);
+
+        jMenuItem6.setText("8 X 8");
+        jMenuBarNiveau.add(jMenuItem6);
+
+        jMenuItem7.setText("9 X 9");
+        jMenuBarNiveau.add(jMenuItem7);
+
+        jMenuItem8.setText("10 X 10");
+        jMenuBarNiveau.add(jMenuItem8);
+
         jMenuBarJeu.add(jMenuBarNiveau);
 
         jMenuItemScores.setText("Scores élevés");
@@ -65,6 +95,11 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuBarAide.add(jMenuItemInstructions);
 
         jMenuItemAPropos.setText("À propos");
+        jMenuItemAPropos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAProposActionPerformed(evt);
+            }
+        });
         jMenuBarAide.add(jMenuItemAPropos);
 
         jMenuBar.add(jMenuBarAide);
@@ -85,6 +120,13 @@ public class TravailPratique extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItemAProposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAProposActionPerformed
+        String message = "Ceci est le travail pratique de Paul-Willy Jean.\n"
+                + "Il est fait dans le cadre du cours de programmation orientée"
+                + " objet.";
+        JOptionPane.showMessageDialog(this, message, "À propos de moi", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItemAProposActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -96,7 +138,7 @@ public class TravailPratique extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -125,6 +167,13 @@ public class TravailPratique extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuBarJeu;
     private javax.swing.JMenu jMenuBarNiveau;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItemAPropos;
     private javax.swing.JMenuItem jMenuItemInstructions;
     private javax.swing.JMenuItem jMenuItemQuitter;
