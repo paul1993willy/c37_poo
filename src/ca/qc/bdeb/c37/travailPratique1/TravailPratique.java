@@ -28,6 +28,7 @@ public class TravailPratique extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelCanvas = new ca.qc.bdeb.c37.travailPratique1.JPuzzleCanvas(4, 4);
         jMenuBar = new javax.swing.JMenuBar();
         jMenuBarJeu = new javax.swing.JMenu();
         jMenuItemRedemarrer = new javax.swing.JMenuItem();
@@ -47,6 +48,17 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuItemAPropos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanelCanvasLayout = new javax.swing.GroupLayout(jPanelCanvas);
+        jPanelCanvas.setLayout(jPanelCanvasLayout);
+        jPanelCanvasLayout.setHorizontalGroup(
+            jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 376, Short.MAX_VALUE)
+        );
+        jPanelCanvasLayout.setVerticalGroup(
+            jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
 
         jMenuBarJeu.setText("Jeu");
 
@@ -85,6 +97,11 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuBarJeu.add(jMenuItemScores);
 
         jMenuItemQuitter.setText("Quitter");
+        jMenuItemQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQuitterActionPerformed(evt);
+            }
+        });
         jMenuBarJeu.add(jMenuItemQuitter);
 
         jMenuBar.add(jMenuBarJeu);
@@ -110,11 +127,17 @@ public class TravailPratique extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -126,6 +149,15 @@ public class TravailPratique extends javax.swing.JFrame {
                 + " objet.";
         JOptionPane.showMessageDialog(this, message, "À propos de moi", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItemAProposActionPerformed
+
+    private void jMenuItemQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQuitterActionPerformed
+        // TODO add your handling code here:
+		System.exit(0);
+    }//GEN-LAST:event_jMenuItemQuitterActionPerformed
+
+	private void setNouvellePartie(int height, int width) {
+		this.jPanelCanvas = new JPuzzleCanvas(height, width);
+	}
 
     /**
      * @param args the command line arguments
@@ -179,5 +211,6 @@ public class TravailPratique extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemQuitter;
     private javax.swing.JMenuItem jMenuItemRedemarrer;
     private javax.swing.JMenuItem jMenuItemScores;
+    private javax.swing.JPanel jPanelCanvas;
     // End of variables declaration//GEN-END:variables
 }
