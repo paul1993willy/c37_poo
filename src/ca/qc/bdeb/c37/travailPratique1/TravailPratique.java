@@ -28,7 +28,7 @@ public class TravailPratique extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelCanvas = new ca.qc.bdeb.c37.travailPratique1.JPuzzleCanvas(4, 4);
+        jPanelCanvas = new JPuzzleCanvas(4, 4);
         jMenuBar = new javax.swing.JMenuBar();
         jMenuBarJeu = new javax.swing.JMenu();
         jMenuItemRedemarrer = new javax.swing.JMenuItem();
@@ -57,7 +57,7 @@ public class TravailPratique extends javax.swing.JFrame {
         );
         jPanelCanvasLayout.setVerticalGroup(
             jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 287, Short.MAX_VALUE)
         );
 
         jMenuBarJeu.setText("Jeu");
@@ -68,27 +68,67 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuBarNiveau.setText("Niveau");
 
         jMenuItem1.setText("3 X 3");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem1);
 
         jMenuItem2.setText("4 X 4");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem2);
 
         jMenuItem3.setText("5 X 5");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem3);
 
         jMenuItem4.setText("6 X 6");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem4);
 
         jMenuItem5.setText("7 X 7");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem5);
 
         jMenuItem6.setText("8 X 8");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem6);
 
         jMenuItem7.setText("9 X 9");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem7);
 
         jMenuItem8.setText("10 X 10");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenuBarNiveau.add(jMenuItem8);
 
         jMenuBarJeu.add(jMenuBarNiveau);
@@ -155,8 +195,70 @@ public class TravailPratique extends javax.swing.JFrame {
 		System.exit(0);
     }//GEN-LAST:event_jMenuItemQuitterActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+		this.setNouvellePartie(3, 3);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+		this.setNouvellePartie(4, 4);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+		this.setNouvellePartie(5, 5);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+		this.setNouvellePartie(6, 6);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+		this.setNouvellePartie(7, 7);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+		this.setNouvellePartie(8, 8);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+		this.setNouvellePartie(9, 9);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+		this.setNouvellePartie(10, 10);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
 	private void setNouvellePartie(int height, int width) {
 		this.jPanelCanvas = new JPuzzleCanvas(height, width);
+
+        javax.swing.GroupLayout jPanelCanvasLayout = new javax.swing.GroupLayout(jPanelCanvas);
+        jPanelCanvas.setLayout(jPanelCanvasLayout);
+        jPanelCanvasLayout.setHorizontalGroup(
+            jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, this.getPreferredSize().width, Short.MAX_VALUE)
+        );
+        jPanelCanvasLayout.setVerticalGroup(
+            jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, this.getPreferredSize().height, Short.MAX_VALUE)
+        );
+		
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this.getContentPane());
+		this.getContentPane().removeAll();
+        this.getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+		pack();
 	}
 
     /**

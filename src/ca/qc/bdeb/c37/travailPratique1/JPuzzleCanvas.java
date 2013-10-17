@@ -6,6 +6,7 @@ package ca.qc.bdeb.c37.travailPratique1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -16,6 +17,7 @@ public class JPuzzleCanvas extends JPanel {
 
 	private javax.swing.JButton[][] boutons;
 	private javax.swing.JButton[][] reserve;
+	private int moveCount;
 	private int lignes;
 	private int colonnes;
 
@@ -23,10 +25,33 @@ public class JPuzzleCanvas extends JPanel {
 		this.boutons = new javax.swing.JButton [height][width];
 		this.lignes = height;
 		this.colonnes = width;
+		this.moveCount = 0;
 		this.melangerPieces();
 		this.placerBoutons();
 	}
 
+	public int getMoveCount() {
+		return this.moveCount;
+	}
+
+	public void addMoveCount() {
+		this.moveCount++;
+	}
+
+	public void resetPuzzle(int height, int width) {
+		for (int i = 0; i < this.lignes; i++) {
+			for (int j = 0; j < this.colonnes; j++) {
+				if (this.boutons[i][j] != null) {
+					this.remove(this.boutons[i][j]);
+				}
+			}
+		}
+		this.boutons = new javax.swing.JButton [height][width];
+		this.lignes = height;
+		this.colonnes = width;
+		this.melangerPieces();
+		this.placerBoutons();
+	}
 	/**
 	 * Melange les pieces du puzzle selon sa dimension
 	 * @param height
@@ -83,13 +108,16 @@ public class JPuzzleCanvas extends JPanel {
 	private void placerBoutons() {
 		for (int i = 0; i < this.lignes; i++) {
 			for (int j = 0; j < this.colonnes; j++) {
-				int hauteurBouton = 279 / this.lignes ;//(this.getHeight() / this.lignes);
-				int largeurBouton = 376 / this.colonnes; //(this.getWidth() / this.colonnes);
+				int hauteurBouton = 50;//(this.getHeight() / this.lignes);
+				int largeurBouton = 50; //(this.getWidth() / this.colonnes);
 				int top = (this.getY() + hauteurBouton * i);
 				int left = (this.getX() + largeurBouton * j);
 
+				this.setPreferredSize(new java.awt.Dimension(largeurBouton * this.colonnes, hauteurBouton * this.lignes));
+
 				if (this.boutons[i][j] != null) {
 					this.add(this.boutons[i][j]);
+					this.boutons[i][j].setBounds(left, top, largeurBouton, hauteurBouton);
 					this.boutons[i][j].addActionListener(new ActionListener() {
 
 						@Override
@@ -97,14 +125,14 @@ public class JPuzzleCanvas extends JPanel {
 							jPanelCanvasButtonActionPerformed(ae);
 						}
 					}) ;
-					this.boutons[i][j].setBounds(left, top, largeurBouton, hauteurBouton);
+					this.boutons[i][j].invalidate();
 					this.boutons[i][j].setVisible(true);
 				}
 			}
 		}
 
 		this.reserve = (javax.swing.JButton[][]) this.boutons.clone();
-		super.setVisible(true);
+		this.invalidate();
 	}
 
 	private void jPanelCanvasButtonActionPerformed(ActionEvent ae) {
@@ -118,8 +146,11 @@ public class JPuzzleCanvas extends JPanel {
 			int colonne = (int) position.getWidth();
 			if (this.deplacerHaut(bouton, ligne, colonne) || this.deplacerBas(bouton, ligne, colonne) ||
 					this.deplacerGauche(bouton, ligne, colonne) || this.deplacerDroite(bouton, ligne, colonne)) {
-				this.invalidate();
-				this.validerOrdre();
+				this.addMoveCount();
+				if (this.validerOrdre()) {
+					JOptionPane.showMessageDialog(this.getParent(), "Bravo! Vous avez gagné la partie", "Vous avez gagné!", JOptionPane.PLAIN_MESSAGE);
+					System.exit(0);
+				}
 			}
 		}
 	}
@@ -132,7 +163,6 @@ public class JPuzzleCanvas extends JPanel {
 			this.boutons[ligne][colonne] = null;
 			return true;
 		}
-
 		return false;
 	}
 
@@ -143,7 +173,6 @@ public class JPuzzleCanvas extends JPanel {
 			this.boutons[ligne][colonne] = null;
 			return true;
 		}
-
 		return false;
 	}
 
@@ -154,7 +183,6 @@ public class JPuzzleCanvas extends JPanel {
 			this.boutons[ligne][colonne] = null;
 			return true;
 		}
-
 		return false;
 	}
 
@@ -165,7 +193,6 @@ public class JPuzzleCanvas extends JPanel {
 			this.boutons[ligne][colonne] = null;
 			return true;
 		}
-
 		return false;
 	}
 
@@ -193,11 +220,9 @@ public class JPuzzleCanvas extends JPanel {
 				} else if (valeur + 1 != 16) {
 					return false;
 				}
-
 				valeur++;
 			}
 		}
-
 		return true;
 	}
 }
