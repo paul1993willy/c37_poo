@@ -192,43 +192,43 @@ public class TravailPratique extends javax.swing.JFrame {
 
     private void jMenuItemQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQuitterActionPerformed
         // TODO add your handling code here:
-		System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItemQuitterActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-		this.setNouvellePartie(3, 3);
+        this.setNouvellePartie(3, 3);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-		this.setNouvellePartie(4, 4);
+        this.setNouvellePartie(4, 4);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-		this.setNouvellePartie(5, 5);
+        this.setNouvellePartie(5, 5);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-		this.setNouvellePartie(6, 6);
+        this.setNouvellePartie(6, 6);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-		this.setNouvellePartie(7, 7);
+        this.setNouvellePartie(7, 7);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-		this.setNouvellePartie(8, 8);
+        this.setNouvellePartie(8, 8);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-		this.setNouvellePartie(9, 9);
+        this.setNouvellePartie(9, 9);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-		this.setNouvellePartie(10, 10);
+        this.setNouvellePartie(10, 10);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-	private void setNouvellePartie(int height, int width) {
-		this.jPanelCanvas = new JPuzzleCanvas(height, width);
+    private void setNouvellePartie(int height, int width) {
+        this.jPanelCanvas = new JPuzzleCanvas(height, width);
 
         javax.swing.GroupLayout jPanelCanvasLayout = new javax.swing.GroupLayout(jPanelCanvas);
         jPanelCanvas.setLayout(jPanelCanvasLayout);
@@ -240,9 +240,9 @@ public class TravailPratique extends javax.swing.JFrame {
             jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, this.getPreferredSize().height, Short.MAX_VALUE)
         );
-		
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this.getContentPane());
-		this.getContentPane().removeAll();
+        this.getContentPane().removeAll();
         this.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,8 +258,8 @@ public class TravailPratique extends javax.swing.JFrame {
                 .addComponent(jPanelCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-		pack();
-	}
+        pack();
+    }
 
     /**
      * @param args the command line arguments
