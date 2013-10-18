@@ -23,16 +23,29 @@ public class JPuzzleCanvas extends JPanel {
 
     public JPuzzleCanvas(int height, int width) {
         this.boutons = new javax.swing.JButton [height][width];
+        this.reserve = new javax.swing.JButton [height][width];
         this.lignes = height;
         this.colonnes = width;
         this.moveCount = 0;
         this.melangerPieces();
         this.placerBoutons();
+        for (int i = 0; i < this.lignes; i++) {
+            for (int j = 0; j < this.colonnes; j++) {
+                if (this.boutons[i][j] != null) {
+                    this.reserve[i][j] = new javax.swing.JButton(this.boutons[i][j].getText());
+                    this.reserve[i][j].setBounds(
+                                            this.boutons[i][j].getX(),
+                                            this.boutons[i][j].getY(),
+                                            this.boutons[i][j].getWidth(),
+                                            this.boutons[i][j].getHeight());
+                }
+            }
+        }
     }
 
     /**
      * Obtient le nombre de mouvements faits dans la partie.
-     * @return 
+     * @return
      */
     public int getMoveCount() {
         return this.moveCount;
