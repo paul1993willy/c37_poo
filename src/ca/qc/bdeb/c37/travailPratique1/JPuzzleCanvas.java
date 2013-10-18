@@ -161,7 +161,7 @@ public class JPuzzleCanvas extends JPanel {
 
     /**
      * Déplace un bouton quand on clique dessus.
-     * @param ae 
+     * @param ae
      */
     private void jPanelCanvasButtonActionPerformed(ActionEvent ae) {
         this.bougerBouton((javax.swing.JButton) ae.getSource());
@@ -169,7 +169,7 @@ public class JPuzzleCanvas extends JPanel {
 
     /**
      * Déplace le bouton s'il y a un espace libre.
-     * @param bouton 
+     * @param bouton
      */
     public void bougerBouton(javax.swing.JButton bouton) {
         java.awt.Dimension position = this.getRank(bouton);
@@ -192,7 +192,7 @@ public class JPuzzleCanvas extends JPanel {
      * @param bouton
      * @param ligne
      * @param colonne
-     * @return 
+     * @return
      */
     private boolean deplacerHaut(javax.swing.JButton bouton, int ligne, int colonne) {
         if (ligne > 0 && this.boutons[ligne - 1][colonne] == null) {
@@ -210,7 +210,7 @@ public class JPuzzleCanvas extends JPanel {
      * @param bouton
      * @param ligne
      * @param colonne
-     * @return 
+     * @return
      */
     private boolean deplacerBas(javax.swing.JButton bouton, int ligne, int colonne) {
         if (ligne < this.lignes - 1 && this.boutons[ligne + 1][colonne] == null) {
@@ -227,7 +227,7 @@ public class JPuzzleCanvas extends JPanel {
      * @param bouton
      * @param ligne
      * @param colonne
-     * @return 
+     * @return
      */
     private boolean deplacerGauche(javax.swing.JButton bouton, int ligne, int colonne) {
         if (colonne > 0 && this.boutons[ligne][colonne - 1] == null) {
@@ -244,7 +244,7 @@ public class JPuzzleCanvas extends JPanel {
      * @param bouton
      * @param ligne
      * @param colonne
-     * @return 
+     * @return
      */
     private boolean deplacerDroite(javax.swing.JButton bouton, int ligne, int colonne) {
         if (colonne < this.colonnes - 1 && this.boutons[ligne][colonne + 1] == null) {
@@ -259,7 +259,7 @@ public class JPuzzleCanvas extends JPanel {
     /**
      * Retourne la position du bouton dans le panneau par rapport aux autres boutons.
      * @param bouton
-     * @return 
+     * @return
      */
     public java.awt.Dimension getRank(javax.swing.JButton bouton) {
         for (int i = 0; i < this.lignes; i++) {
@@ -272,10 +272,10 @@ public class JPuzzleCanvas extends JPanel {
 
         return null;
     }
-    
+
     /**
      * Valide l'ordre des boutons dans le panneau
-     * @return 
+     * @return
      */
     private boolean validerOrdre() {
         int valeur = 0;

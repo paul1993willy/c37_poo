@@ -57,7 +57,7 @@ public class TravailPratique extends javax.swing.JFrame {
         );
         jPanelCanvasLayout.setVerticalGroup(
             jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addGap(0, 295, Short.MAX_VALUE)
         );
 
         jMenuBarJeu.setText("Jeu");
@@ -154,6 +154,11 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuBarAide.setText("Aide");
 
         jMenuItemInstructions.setText("Instructions");
+        jMenuItemInstructions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemInstructionsActionPerformed(evt);
+            }
+        });
         jMenuBarAide.add(jMenuItemInstructions);
 
         jMenuItemAPropos.setText("À propos");
@@ -256,7 +261,7 @@ public class TravailPratique extends javax.swing.JFrame {
             jPanelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, this.getPreferredSize().height, Short.MAX_VALUE)
         );
-        
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this.getContentPane());
         this.getContentPane().removeAll();
         this.getContentPane().setLayout(layout);
@@ -284,7 +289,7 @@ public class TravailPratique extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

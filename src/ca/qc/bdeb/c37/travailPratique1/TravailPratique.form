@@ -13,6 +13,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Red&#xe9;marrer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemRedemarrerActionPerformed"/>
+              </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="jMenuBarNiveau">
               <Properties>
@@ -109,6 +112,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Instructions"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemInstructionsActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAPropos">
               <Properties>
@@ -178,7 +184,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="287" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
