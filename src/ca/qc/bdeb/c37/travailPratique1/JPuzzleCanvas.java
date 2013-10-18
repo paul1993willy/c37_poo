@@ -83,7 +83,7 @@ public class JPuzzleCanvas extends JPanel {
     /**
      * Melange les pieces du puzzle selon sa dimension
      * @param height
-     * @param width 
+     * @param width
      */
     private void melangerPieces() {
         int index = 0; // Initialise un index a 0
@@ -131,17 +131,17 @@ public class JPuzzleCanvas extends JPanel {
     /**
      * Place les pièces du puzzle dans le panneau
      * @param height
-     * @param width 
+     * @param width
      */
     private void placerBoutons() {
+        int hauteurBouton = 50;//(this.getHeight() / this.lignes);
+        int largeurBouton = 50; //(this.getWidth() / this.colonnes);
+
+        this.setPreferredSize(new java.awt.Dimension(largeurBouton * this.colonnes, hauteurBouton * this.lignes));
         for (int i = 0; i < this.lignes; i++) {
             for (int j = 0; j < this.colonnes; j++) {
-                int hauteurBouton = 50;//(this.getHeight() / this.lignes);
-                int largeurBouton = 50; //(this.getWidth() / this.colonnes);
                 int top = (this.getY() + hauteurBouton * i);
                 int left = (this.getX() + largeurBouton * j);
-
-                this.setPreferredSize(new java.awt.Dimension(largeurBouton * this.colonnes, hauteurBouton * this.lignes));
 
                 if (this.boutons[i][j] != null) {
                     this.add(this.boutons[i][j]);
@@ -152,15 +152,11 @@ public class JPuzzleCanvas extends JPanel {
                         public void actionPerformed(ActionEvent ae) {
                             jPanelCanvasButtonActionPerformed(ae);
                         }
-                    }) ;
-                    this.boutons[i][j].invalidate();
+                    });
                     this.boutons[i][j].setVisible(true);
                 }
             }
         }
-
-        this.reserve = (javax.swing.JButton[][]) this.boutons.clone();
-        this.invalidate();
     }
 
     /**
