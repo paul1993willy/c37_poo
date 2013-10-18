@@ -59,22 +59,25 @@ public class JPuzzleCanvas extends JPanel {
     }
 
     /**
-     * Démarre une nouvelle partie.
-     * @param height
-     * @param width 
+     * Recommence la partie en cours
      */
-    public void resetPuzzle(int height, int width) {
+    public void redemarrerPartie() {
+        /*
+         * Retire le bouton du panneau
+         */
         for (int i = 0; i < this.lignes; i++) {
             for (int j = 0; j < this.colonnes; j++) {
                 if (this.boutons[i][j] != null) {
                     this.remove(this.boutons[i][j]);
                 }
+
+                if (this.reserve[i][j] != null) {
+                    this.boutons[i][j] = new javax.swing.JButton(this.reserve[i][j].getText());
+                } else {
+                    this.boutons[i][j] = null;
+                }
             }
         }
-        this.boutons = new javax.swing.JButton [height][width];
-        this.lignes = height;
-        this.colonnes = width;
-        this.melangerPieces();
         this.placerBoutons();
     }
     /**

@@ -63,6 +63,11 @@ public class TravailPratique extends javax.swing.JFrame {
         jMenuBarJeu.setText("Jeu");
 
         jMenuItemRedemarrer.setText("Redémarrer");
+        jMenuItemRedemarrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRedemarrerActionPerformed(evt);
+            }
+        });
         jMenuBarJeu.add(jMenuItemRedemarrer);
 
         jMenuBarNiveau.setText("Niveau");
@@ -226,6 +231,17 @@ public class TravailPratique extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         this.setNouvellePartie(10, 10);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItemInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInstructionsActionPerformed
+        JOptionPane.showMessageDialog(this.getContentPane(),
+                "Le but est de remettre les chiffres en ordre en un temps record.",
+                "Information", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItemInstructionsActionPerformed
+
+    private void jMenuItemRedemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRedemarrerActionPerformed
+        JPuzzleCanvas jPanelCopy = (JPuzzleCanvas) this.jPanelCanvas;
+        jPanelCopy.redemarrerPartie();
+    }//GEN-LAST:event_jMenuItemRedemarrerActionPerformed
 
     private void setNouvellePartie(int height, int width) {
         this.jPanelCanvas = new JPuzzleCanvas(height, width);
