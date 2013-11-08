@@ -17,17 +17,32 @@ public class StringUtilitaires {
         this.chaine = chaine;
     }
 
+    public void setText(String chaine) {
+        this.chaine = chaine;
+    }
+
     public void stripA() {
         String premieresLettres = this.chaine.substring(0, 2);
         String reste = this.chaine.substring(2);
 
-        premieresLettres = premieresLettres.toUpperCase().replaceAll("A", "");
+        premieresLettres = premieresLettres.replaceAll("[Aa]", "");
 
         this.chaine = premieresLettres + reste;
     }
 
     public boolean isIdentique() {
 
-        return true;
+        char premiereLettre = this.chaine.toCharArray()[0];
+        char derniereLettre =
+                this.chaine.toCharArray()[this.chaine.length() -1 ];
+
+        return this.chaine.length() >= 2 &&
+                (this.chaine.toCharArray()[1] == premiereLettre ||
+                this.chaine.toCharArray()[this.chaine.length() - 2] == derniereLettre);
+    }
+
+    @Override
+    public final String toString() {
+        return this.chaine;
     }
 }
