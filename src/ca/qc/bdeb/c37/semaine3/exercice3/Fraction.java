@@ -4,8 +4,6 @@
  */
 package ca.qc.bdeb.c37.semaine3.exercice3;
 
-import sun.invoke.empty.Empty;
-
 /**
  *
  * @author paulwillyjean
@@ -50,7 +48,7 @@ public class Fraction
 		return this.denominateur;
 	}
 
-	public Fraction setDenominateur(int denominateur) {
+	public Fraction setDenominateur(int denominateur) throws IllegalArgumentException {
 		if (denominateur == 0) {
 			throw new IllegalArgumentException("Le denominateur ne doit jamais etre zero");
 		}
@@ -72,7 +70,9 @@ public class Fraction
 			} else {
 				fractionResultat.setDenominateur(this.getDenominateur() * fractionB.getDenominateur());
 			}
-		}
+		} else {
+            fractionResultat.setDenominateur(this.getDenominateur());
+        }
 
 		fractionResultat.setNumerateur((this.getNumerateur() * fractionResultat.getDenominateur() / this.getDenominateur())
 			+ (fractionB.getNumerateur() * fractionResultat.getDenominateur() / fractionB.getDenominateur()));
@@ -131,6 +131,11 @@ public class Fraction
 		// Retourne la fraction telle quelle si elle est irréductible
 		return this;
 	}
+
+    public boolean equals(Fraction fractionB) {
+        return (this.getNumerateur() == fractionB.getNumerateur() &&
+                this.getDenominateur() == fractionB.getDenominateur());
+    }
 
 	@Override
 	public String toString() {
