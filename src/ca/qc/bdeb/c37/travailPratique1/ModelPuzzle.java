@@ -4,7 +4,6 @@
  */
 package ca.qc.bdeb.c37.travailPratique1;
 import javax.swing.JButton;
-import org.w3c.dom.html.HTMLElement;
 
 /**
  *
@@ -15,12 +14,12 @@ public class ModelPuzzle {
     private JButton[][] reserve;
     private int nombreLignesBoutons;
     private int nombreColonnesBoutons;
-    int HAUTEUR_BOUTON = 50;
-    int LARGEUR_BOUTON = 50;
+    private int hauteurBouton = 50;
+    private int largeurBouton = 50;
 
     private ModelPuzzle() {
-        this.HAUTEUR_BOUTON = 50;
-        this.LARGEUR_BOUTON = 50;
+        this.hauteurBouton = 50;
+        this.largeurBouton = 50;
     }
 
     /**
@@ -33,6 +32,29 @@ public class ModelPuzzle {
         this.nombreLignesBoutons = height;
         this.boutons = new JButton[this.nombreLignesBoutons][this.nombreColonnesBoutons];
         this.reserve = new JButton[this.nombreLignesBoutons][this.nombreColonnesBoutons];
+    }
+
+    public int getHauteurBouton() {
+        return this.hauteurBouton;
+    }
+
+    public void setHauteurBouton(int hauteur) {
+        this.hauteurBouton = hauteur;
+
+        // Change la hauteur de tous les boutons du puzzle
+        for (JButton[] rangee : this.boutons) {
+            for (JButton bouton : rangee) {
+                bouton.setSize(this.getHauteurBouton(), this.getLargeurBouton());
+            }
+        }
+    }
+
+    public int getLargeurBouton() {
+        return this.largeurBouton;
+    }
+
+    public void getLargeurBouton (int largeur) {
+        this.largeurBouton = largeur;
     }
 
     public int getNombreLignesBoutons() {
