@@ -4,7 +4,7 @@ package ca.qc.bdeb.c37.travailPratique2.models;
  *
  * @author 1022680
  */
-public abstract class ModelObjetSpacial extends Model {
+public abstract class ModelEntite extends Model {
     private int X;
     private int Y;
     private int width;
