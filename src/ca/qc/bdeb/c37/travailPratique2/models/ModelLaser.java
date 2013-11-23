@@ -18,8 +18,10 @@ public interface ModelLaser {
 
     /**
      * À utiliser pour détruire les objets spaciaux en cas de collision
-     * Il devrait idéalement être appelé après qu'on se soit rendu compte qu'il y
-     * a intersection entre les objets
+     * Il devrait idéalement être appelé au moment de voir s'il y a intersection
+     *
+     * Retourne vrai s'il y a collision entre un laser et sa cible
+     * @return
      */
-    public void detruire();
+    public boolean detruire();
 }
