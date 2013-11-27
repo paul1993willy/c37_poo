@@ -11,6 +11,7 @@ package ca.qc.bdeb.c37.travailPratique2.models;
  * @author paulwillyjean
  */
 public class ModelLaserVaisseau extends ModelEntite implements ModelLaser {
+    static private final int POINTS_GAGNES = 10;
 
     @Override
     public void deplacer() {
