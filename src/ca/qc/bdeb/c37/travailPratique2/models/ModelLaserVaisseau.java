@@ -18,7 +18,8 @@ public class ModelLaserVaisseau extends ModelEntite implements ModelLaser {
         this.firePropertyChange("Y", this.getY() - 1, this.getY());
     }
 
-    public void detruire() {
-
+    @Override
+    public int detruire() {
+        return POINTS_GAGNES;
     }
 }
