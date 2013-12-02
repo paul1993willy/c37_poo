@@ -12,4 +12,21 @@ package ca.qc.bdeb.c37.travailPratique2.models;
  */
 public class ModelVaisseau extends ModelEntite {
 
+    private javax.swing.ImageIcon iconeVaisseau;
+
+    public ModelVaisseau() {
+        init();
+    }
+
+    private void init() {
+        iconeVaisseau = new javax.swing.ImageIcon(this.getClass().getResource("vaisseau"));
+    }
+
+    /**
+     * Définit une nouvelle icone pour le vaisseau
+     * @param location
+     */
+    public void setIconeVaisseau(java.net.URL location) {
+        iconeVaisseau = new javax.swing.ImageIcon(location);
+    }
 }
