@@ -6,6 +6,7 @@
 
 package ca.qc.bdeb.c37.travailPratique2.models;
 import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.beans.PropertyChangeSupport;
 
@@ -19,15 +20,14 @@ abstract public class Model {
 
     protected Model() {
         this.pcs = new PropertyChangeSupport(this);
-        this.controllers = new ArrayList<Controller>();
     }
 
     public void addController(Controller controller) {
-        controllers.add(controller);
+        pcs.addPropertyChangeListener(controller);
     }
 
     public void removeController(Controller controller) {
-        controllers.remove(controller);
+        pcs.removePropertyChangeListener(controller);
     }
 
     protected void firePropertyChange(String property,
