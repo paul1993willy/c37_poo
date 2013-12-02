@@ -11,7 +11,7 @@ import java.beans.PropertyChangeEvent;
  *
  * @author paulwillyjean
  */
-abstract public class View {
+public interface View {
 
-    abstract public void modelPropertyChange(final PropertyChangeEvent evt);
+    public void modelPropertyChange(final PropertyChangeEvent evt);
 }
