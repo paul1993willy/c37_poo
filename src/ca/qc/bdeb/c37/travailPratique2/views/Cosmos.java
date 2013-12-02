@@ -7,6 +7,7 @@
 package ca.qc.bdeb.c37.travailPratique2.views;
 import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
 import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -44,6 +45,17 @@ public class Cosmos extends javax.swing.JFrame implements View {
     }
 
     private void localInitialization() {
+        // Crée une image transparante pour le curseur
+        java.awt.image.BufferedImage cursorImg = new java.awt.image.BufferedImage(16, 16,
+            java.awt.image.BufferedImage.TYPE_INT_ARGB);
+
+        // Crée un curseur transparent pour qu'on ne le voit plus.
+        java.awt.Cursor blankCursor = java.awt.Toolkit.getDefaultToolkit()
+                .createCustomCursor(cursorImg, new java.awt.Point(0, 0), "Blank Cursor");
+
+        // Rend le curseur transparent pour qu'on ne le voit plus.
+        this.getContentPane().setCursor(blankCursor);
+
         panneau.addMouseMotionListener(new java.awt.event.MouseMotionListener() {
 
             @Override
