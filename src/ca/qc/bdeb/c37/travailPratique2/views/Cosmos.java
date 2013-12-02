@@ -14,6 +14,11 @@ import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
  */
 public class Cosmos extends javax.swing.JFrame implements View {
 
+    public static final int MIN_X = 0;
+    public static final int MIN_Y = 0;
+    public static final int MAX_X = 500;
+    public static final int MAX_Y = 700;
+
     private Controller controller;
     private javax.swing.JPanel panneau;
     private javax.swing.JLabel vaisseau;
@@ -28,11 +33,12 @@ public class Cosmos extends javax.swing.JFrame implements View {
         panneau = new javax.swing.JPanel(null);
         vaisseau = new javax.swing.JLabel();
         this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
-        this.setSize(500, 700);
+        this.setSize(MAX_X, MAX_Y);
         this.setLocationRelativeTo(null);
         this.getContentPane().add(panneau);
         this.getClass().getResource("background.png");
         panneau.add(vaisseau);
+        panneau.setSize(MAX_X, MAX_Y);
         vaisseau.setBounds(225, 550, 50, 50);
         this.setVisible(true);
     }
