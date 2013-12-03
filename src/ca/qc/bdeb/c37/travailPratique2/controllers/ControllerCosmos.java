@@ -16,6 +16,7 @@ import ca.qc.bdeb.c37.travailPratique2.views.Cosmos;
 public class ControllerCosmos extends Controller {
 
     public static final String VAISSEAU_ICON = "IconeVaisseau";
+    private ModelVaisseau vaisseau;
 
     public ControllerCosmos() {
         init();
@@ -23,7 +24,7 @@ public class ControllerCosmos extends Controller {
 
     private synchronized void init() {
         this.addView(new Cosmos(this));
-        this.addModel(new ModelVaisseau());
+        this.addModel(vaisseau);
     }
 
     /**
