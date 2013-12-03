@@ -77,7 +77,7 @@ public class Cosmos extends javax.swing.JFrame implements View {
 
             @Override
             public void componentMoved(java.awt.event.ComponentEvent ce) {
-                ((ControllerCosmos) controller).changetVaisseauPosition(vaisseau.getLocation());
+                ((ControllerCosmos) controller).setVaisseauPosition(vaisseau.getLocation());
             }
 
             @Override

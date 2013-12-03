@@ -31,7 +31,6 @@ public class ControllerCosmos extends Controller {
      * Change la position du vaisseau selon les coordonées fournies
      * @param vaisseauPoint
      */
-    public synchronized void changetVaisseauPosition(java.awt.Point vaisseauPoint) {
-
+    public synchronized void setVaisseauPosition(java.awt.Point vaisseauPoint) {
     }
 }
