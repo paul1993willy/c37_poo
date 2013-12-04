@@ -77,7 +77,7 @@ public class Cosmos extends javax.swing.JFrame implements View {
 
             @Override
             public void mouseMoved(java.awt.event.MouseEvent me) {
-                vaisseau.setLocation(me.getPoint());
+                    vaisseau.setLocation(me.getPoint());
             }
 
         });
@@ -105,8 +105,15 @@ public class Cosmos extends javax.swing.JFrame implements View {
 
     @Override
     public void modelPropertyChange(final java.beans.PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals(ControllerCosmos.VAISSEAU_ICON)) {
-            vaisseau.setIcon( (javax.swing.ImageIcon) evt.getNewValue());
+        switch (evt.getPropertyName()) {
+            case ControllerCosmos.VAISSEAU_ICON:
+                vaisseau.setIcon( (ImageIcon) evt.getNewValue());
+                break;
+            case ControllerCosmos.VAISSEAU_BOUNDS:
+                if ( ! vaisseau.getBounds().equals((Rectangle) evt.getOldValue())) {
+                    vaisseau.setBounds((Rectangle) evt.getNewValue());
+                }
+                break;
         }
     }
 }
