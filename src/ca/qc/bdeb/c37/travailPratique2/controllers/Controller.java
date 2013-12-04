@@ -5,12 +5,13 @@
  */
 
 package ca.qc.bdeb.c37.travailPratique2.controllers;
+
 import ca.qc.bdeb.c37.travailPratique2.models.Model;
 import ca.qc.bdeb.c37.travailPratique2.views.View;
-import java.util.ArrayList;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 /**
  *

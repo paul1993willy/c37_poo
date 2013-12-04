@@ -6,6 +6,9 @@
 
 package ca.qc.bdeb.c37.travailPratique2.models;
 
+import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
+import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 /**
  *
  * @author paulwillyjean

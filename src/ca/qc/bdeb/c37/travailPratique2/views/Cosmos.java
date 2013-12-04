@@ -7,7 +7,11 @@
 package ca.qc.bdeb.c37.travailPratique2.views;
 import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
 import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
+import ca.qc.bdeb.c37.travailPratique2.models.ModelLaserVaisseau;
+import ca.qc.bdeb.c37.travailPratique2.models.ModelVaisseau;
 import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *

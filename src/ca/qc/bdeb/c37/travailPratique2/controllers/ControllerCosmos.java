@@ -6,8 +6,16 @@
 
 package ca.qc.bdeb.c37.travailPratique2.controllers;
 
+import ca.qc.bdeb.c37.travailPratique2.models.ModelLaserEnnemi;
+import ca.qc.bdeb.c37.travailPratique2.models.ModelLaserVaisseau;
 import ca.qc.bdeb.c37.travailPratique2.models.ModelVaisseau;
+import ca.qc.bdeb.c37.travailPratique2.models.ModelEnnemi;
 import ca.qc.bdeb.c37.travailPratique2.views.Cosmos;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JLabel;
 
 /**
  *

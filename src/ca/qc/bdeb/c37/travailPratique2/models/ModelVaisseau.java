@@ -6,20 +6,23 @@
 
 package ca.qc.bdeb.c37.travailPratique2.models;
 
+import javax.swing.ImageIcon;
+import java.net.URL;
+
 /**
  *
  * @author paulwillyjean
  */
 public class ModelVaisseau extends ModelEntite {
 
-    private javax.swing.ImageIcon iconeVaisseau;
+    private static ImageIcon iconeVaisseau;
 
     public ModelVaisseau() {
         init();
     }
 
     private void init() {
-        iconeVaisseau = new javax.swing.ImageIcon(this.getClass().getResource("vaisseau"));
+        this.setIcon(this.getClass().getResource("Ressource/vaisseau.png"));
     }
 
     /**

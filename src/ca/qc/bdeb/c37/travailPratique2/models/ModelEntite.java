@@ -1,5 +1,7 @@
 package ca.qc.bdeb.c37.travailPratique2.models;
 
+import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 /**
  *
  * @author 1022680
@@ -8,11 +10,17 @@ public abstract class ModelEntite extends Model {
     // Les dimensions et les coordonnées de l'entité
     private java.awt.Rectangle bounds;
 
+
+    /**
+     * À utiliser pour reprendre l'icone de l'entité
+     * @return
+     */
+    public abstract ImageIcon getIcon();
     /**
      * Retourne les dimensions et la position de l'entité
      * @return
      */
-    public java.awt.Rectangle getBounds() {
+    public Rectangle getBounds() {
         return this.bounds;
     }
 
@@ -22,12 +30,12 @@ public abstract class ModelEntite extends Model {
      * @param pBounds
      * @return
      */
-    public java.awt.Rectangle getBounds(java.awt.Rectangle pBounds) {
+    public Rectangle getBounds(Rectangle pBounds) {
         pBounds = this.getBounds();
         return pBounds;
     }
 
-    public void setBounds(java.awt.Rectangle bounds) {
+    public void setBounds(Rectangle bounds) {
         this.bounds = bounds;
     }
     /**

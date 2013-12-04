@@ -6,7 +6,6 @@
 
 package ca.qc.bdeb.c37.travailPratique2.models;
 import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.beans.PropertyChangeSupport;
 
