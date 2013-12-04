@@ -6,7 +6,9 @@
 
 package ca.qc.bdeb.c37.travailPratique2.models;
 
+import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
 import javax.swing.ImageIcon;
+import java.awt.Rectangle;
 import java.net.URL;
 
 /**
@@ -22,21 +24,27 @@ public class ModelVaisseau extends ModelEntite {
     }
 
     private void init() {
-        this.setIcon(this.getClass().getResource("Ressource/vaisseau.png"));
+        this.setBounds(new Rectangle(50, 50));
     }
 
+    @Override
+    public synchronized void setBounds(Rectangle bounds) {
+        Rectangle oldBounds = this.getBounds();
+        super.setBounds(bounds);
+        this.firePropertyChange(ControllerCosmos.VAISSEAU_BOUNDS, oldBounds, this.getBounds());
+    }
     /**
      * Définit une nouvelle icone pour le vaisseau
      * @param location
      */
-    public void setIcon(URL location) {
-        ImageIcon oldIcon = new ImageIcon(iconeVaisseau.getImage());
+    public synchronized void setIcon(URL location) {
+        ImageIcon oldIcon = iconeVaisseau;
         iconeVaisseau = new ImageIcon(location);
         this.firePropertyChange(ControllerCosmos.VAISSEAU_ICON, oldIcon , iconeVaisseau);
     }
 
     public void setIcon(String etat) {
-        this.setIcon(this.getClass().getResource("vaisseau" + etat + ".png"));
+        this.setIcon(this.getClass().getResource("Ressources/vaisseau" + etat + ".png"));
     }
 
     @Override
