@@ -29,7 +29,18 @@ public class ModelVaisseau extends ModelEntite {
      * Définit une nouvelle icone pour le vaisseau
      * @param location
      */
-    public void setIconeVaisseau(java.net.URL location) {
-        iconeVaisseau = new javax.swing.ImageIcon(location);
+    public void setIcon(URL location) {
+        ImageIcon oldIcon = new ImageIcon(iconeVaisseau.getImage());
+        iconeVaisseau = new ImageIcon(location);
+        this.firePropertyChange("IconeVaisseau", oldIcon , iconeVaisseau);
+    }
+
+    public void setIcon(String etat) {
+        this.setIcon(this.getClass().getResource("vaisseau" + etat + ".png"));
+    }
+
+    @Override
+    public ImageIcon getIcon() {
+        return iconeVaisseau;
     }
 }
