@@ -32,7 +32,7 @@ public class ModelVaisseau extends ModelEntite {
     public void setIcon(URL location) {
         ImageIcon oldIcon = new ImageIcon(iconeVaisseau.getImage());
         iconeVaisseau = new ImageIcon(location);
-        this.firePropertyChange("IconeVaisseau", oldIcon , iconeVaisseau);
+        this.firePropertyChange(ControllerCosmos.VAISSEAU_ICON, oldIcon , iconeVaisseau);
     }
 
     public void setIcon(String etat) {

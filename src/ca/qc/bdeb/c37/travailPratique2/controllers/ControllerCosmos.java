@@ -23,7 +23,10 @@ import javax.swing.JLabel;
  */
 public class ControllerCosmos extends Controller {
 
-    public static final String VAISSEAU_ICON = "IconeVaisseau";
+    public static final String VAISSEAU_ICON = "VaisseauIcon";
+    public static final String VAISSEAU_BOUNDS = "VaisseauBounds";
+    public static final String LASER_BOUNDS = "LaserBounds";
+
     private ModelVaisseau vaisseau;
     private Cosmos cosmos;
 
