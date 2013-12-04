@@ -17,6 +17,12 @@ public class ControllerCosmos extends Controller {
 
     public static final String VAISSEAU_ICON = "IconeVaisseau";
     private ModelVaisseau vaisseau;
+    private Cosmos cosmos;
+
+    private HashMap<ModelLaserVaisseau, JLabel> vaisseausLasers;
+    private ArrayList<ModelLaserVaisseau> vaisseauLasers;
+    private ArrayList<ModelLaserEnnemi> lasers;
+    private ArrayList<ModelEnnemi> ennemis;
 
     public ControllerCosmos() {
         init();

@@ -21,8 +21,8 @@ abstract public class Controller implements PropertyChangeListener {
     private ArrayList<View> views;
 
     public Controller() {
-        this.models = new ArrayList<Model>();
-        this.views = new ArrayList<View>();
+        this.models = new ArrayList<>();
+        this.views = new ArrayList<>();
     }
 
     public void propertyChange(PropertyChangeEvent evt) {
