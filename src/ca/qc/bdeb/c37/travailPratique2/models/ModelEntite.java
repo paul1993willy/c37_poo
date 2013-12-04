@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
  */
 public abstract class ModelEntite extends Model {
     // Les dimensions et les coordonnées de l'entité
-    private java.awt.Rectangle bounds;
+    private Rectangle bounds;
 
 
     /**
@@ -42,16 +42,16 @@ public abstract class ModelEntite extends Model {
      * Retourne la position en X de l'objet
      * @return
      */
-    public int getX() {
-        return this.bounds.x;
+    public double getX() {
+        return this.bounds.getX();
     }
 
     /**
      * Retourne la position en Y de l'objet
      * @return
      */
-    public int getY() {
-        return this.bounds.y;
+    public double getY() {
+        return this.bounds.getY();
     }
 
     /**
