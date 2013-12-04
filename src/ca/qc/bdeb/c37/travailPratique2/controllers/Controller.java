@@ -26,6 +26,12 @@ abstract public class Controller implements PropertyChangeListener {
         this.views = new ArrayList<>();
     }
 
+    /**
+     * Informe les vues du controlleur des changements de
+     * propriété des modèles
+     * @param evt
+     */
+    @Override
     public void propertyChange(PropertyChangeEvent evt) {
         for (View view : this.views) {
             view.modelPropertyChange(evt);
