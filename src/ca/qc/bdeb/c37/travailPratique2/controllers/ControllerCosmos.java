@@ -39,9 +39,18 @@ public class ControllerCosmos extends Controller {
         init();
     }
 
+    /**
+     * Initialise l'objet
+     */
     private synchronized void init() {
-        this.addView(new Cosmos(this));
+        this.cosmos = new Cosmos(this);
+        this.addView(cosmos);
+        this.vaisseau = new ModelVaisseau();
         this.addModel(vaisseau);
+        this.vaisseau.setIcon("");
+        vaisseauLasers = new ArrayList<>();
+        lasers = new ArrayList<>();
+        ennemis = new ArrayList<>();
     }
 
     /**
