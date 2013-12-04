@@ -10,8 +10,11 @@ import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
 import ca.qc.bdeb.c37.travailPratique2.models.ModelLaserVaisseau;
 import ca.qc.bdeb.c37.travailPratique2.models.ModelVaisseau;
 import java.awt.image.BufferedImage;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -25,8 +28,9 @@ public class Cosmos extends javax.swing.JFrame implements View {
     public static final int MAX_Y = 700;
 
     private Controller controller;
-    private javax.swing.JPanel panneau;
-    private javax.swing.JLabel vaisseau;
+    private JPanel panneau;
+    private JLabel background;
+    private JLabel vaisseau;
 
     public Cosmos(Controller controlleur) {
         this.controller = controlleur;
@@ -35,15 +39,20 @@ public class Cosmos extends javax.swing.JFrame implements View {
     }
 
     private void initComponents() {
-        panneau = new javax.swing.JPanel(null);
-        vaisseau = new javax.swing.JLabel();
-        this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        panneau = new JPanel(null);
+        background = new JLabel();
+        vaisseau = new JLabel();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(MAX_X, MAX_Y);
         this.setLocationRelativeTo(null);
         this.getContentPane().add(panneau);
-        this.getClass().getResource("background.png");
+        panneau.add(background);
         panneau.add(vaisseau);
+        panneau.setComponentZOrder(background, 1);
+        panneau.setComponentZOrder(vaisseau, 0);
         panneau.setSize(MAX_X, MAX_Y);
+        background.setBounds(new Rectangle(MAX_X, MAX_Y));
+        background.setIcon(new ImageIcon(this.getClass().getResource("background.png")));
         vaisseau.setBounds(225, 550, 50, 50);
         this.setVisible(true);
     }
