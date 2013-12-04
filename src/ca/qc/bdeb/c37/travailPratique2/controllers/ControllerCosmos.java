@@ -57,6 +57,25 @@ public class ControllerCosmos extends Controller {
      * Change la position du vaisseau selon les coordonées fournies
      * @param vaisseauPoint
      */
-    public synchronized void setVaisseauPosition(java.awt.Point vaisseauPoint) {
+    public synchronized void setVaisseauPosition(Point vaisseauPoint) {
+        Rectangle bounds = new Rectangle(vaisseauPoint, vaisseau.getBounds().getSize());
+        vaisseau.setBounds(bounds);
+
+        for (ModelLaserEnnemi laser : lasers) {
+            if (laser.getBounds().intersects(vaisseau.getBounds())) {
+                vaisseau.setIcon("Touche");
+            }
+        }
+
+        for (ModelEnnemi ennemi : ennemis) {
+            if (ennemi.getBounds().intersects(vaisseau.getBounds())) {
+                vaisseau.setIcon("Touche");
+            }
+        }
+    }
+
+    public synchronized void setLaserVaisseau(Rectangle bounds) {
+        ModelLaserVaisseau laser = new ModelLaserVaisseau();
+        laser.setBounds(bounds);
     }
 }
