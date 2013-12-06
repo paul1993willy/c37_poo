@@ -7,10 +7,18 @@
 package ca.qc.bdeb.c37.travailPratique2.views;
 import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
 import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
-import ca.qc.bdeb.c37.travailPratique2.models.ModelLaserVaisseau;
-import ca.qc.bdeb.c37.travailPratique2.models.ModelVaisseau;
-import java.awt.image.BufferedImage;
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,12 +35,18 @@ public class Cosmos extends javax.swing.JFrame implements View {
     public static final int MAX_X = 500;
     public static final int MAX_Y = 700;
 
-    private Controller controller;
+    private ControllerCosmos controller;
     private JPanel panneau;
     private JLabel background;
     private JLabel vaisseau;
+    private List<JLabel> vaisseauLasers;
 
-    public Cosmos(Controller controlleur) {
+    /**
+     * Crée une nouvelle instance de la vue et y
+     * attache
+     * @param controlleur
+     */
+    public Cosmos(ControllerCosmos controlleur) {
         this.controller = controlleur;
         initComponents();
         localInitialization();
@@ -70,38 +84,51 @@ public class Cosmos extends javax.swing.JFrame implements View {
         // Rend le curseur transparent pour qu'on ne le voit plus.
         this.getContentPane().setCursor(blankCursor);
 
-        panneau.addMouseMotionListener(new java.awt.event.MouseMotionListener() {
+        panneau.addMouseMotionListener(new MouseMotionListener() {
 
             @Override
-            public void mouseDragged(java.awt.event.MouseEvent me) {
+            public void mouseDragged(MouseEvent me) {
             }
 
             @Override
-            public void mouseMoved(java.awt.event.MouseEvent me) {
-                    vaisseau.setLocation(me.getPoint());
-            }
-
-        });
-
-        vaisseau.addComponentListener(new java.awt.event.ComponentListener() {
-
-            @Override
-            public void componentResized(java.awt.event.ComponentEvent ce) {
-            }
-
-            @Override
-            public void componentMoved(java.awt.event.ComponentEvent ce) {
-                ((ControllerCosmos) controller).setVaisseauPosition(vaisseau.getLocation());
-            }
-
-            @Override
-            public void componentShown(java.awt.event.ComponentEvent ce) {
-            }
-
-            @Override
-            public void componentHidden(java.awt.event.ComponentEvent ce) {
+            public void mouseMoved(MouseEvent me) {
+                vaisseau.setLocation(me.getPoint());
             }
         });
+
+        panneau.setFocusable(true);
+        panneau.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                if (ke.getKeyChar() == ' ') {
+                    JLabel vaisseauLaser = new JLabel();
+                    Point laserPoint = new Point(vaisseau.getLocation());
+
+                    // Déplace le point au milieu du vaisseau
+                    laserPoint.setLocation(laserPoint.getX() + 20, laserPoint.getY());
+
+                    //Ajoute le laser au panneau
+                    panneau.add(vaisseauLaser);
+                    panneau.setComponentZOrder(background, panneau.getComponentCount() - 1);
+                    panneau.setComponentZOrder(vaisseauLaser, panneau.getComponentCount() - 2);
+                    synchronized (ControllerCosmos.VAISSEAU_LASER_TIC) {
+                        vaisseauLasers.add(vaisseauLaser);
+                    }
+                    controller.setLaserVaisseau(laserPoint, vaisseauLaser);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+            }
+        });
+        panneau.addMouseListener(new NouveauVaisseauMouseListener());
+        vaisseau.addComponentListener(new VaisseauPositionComponentListener());
     }
 
     @Override
@@ -115,6 +142,72 @@ public class Cosmos extends javax.swing.JFrame implements View {
                     vaisseau.setBounds((Rectangle) evt.getNewValue());
                 }
                 break;
+            case ControllerCosmos.VAISSEAU_LASER_BOUNDS:
+                synchronized (ControllerCosmos.VAISSEAU_LASER_TIC) {
+                    for (JLabel laser : vaisseauLasers) {
+                        if (laser.getBounds().equals((Rectangle) evt.getOldValue())) {
+                            laser.setBounds((Rectangle) evt.getNewValue());
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
+    private class NouveauVaisseauMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent me) {
+                JLabel vaisseauLaser = new JLabel();
+                Point laserPoint = new Point(me.getPoint());
+
+                // Déplace le point au milieu du vaisseau
+                laserPoint.setLocation(laserPoint.getX() + 20, laserPoint.getY());
+
+                //Ajoute le laser au panneau
+                panneau.add(vaisseauLaser);
+                panneau.setComponentZOrder(background, panneau.getComponentCount() - 1);
+                panneau.setComponentZOrder(vaisseauLaser, panneau.getComponentCount() - 2);
+                synchronized (ControllerCosmos.VAISSEAU_LASER_TIC) {
+                    vaisseauLasers.add(vaisseauLaser);
+                }
+                controller.setLaserVaisseau(laserPoint, vaisseauLaser);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent me) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent me) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent me) {
+        }
+
+    }
+    private class VaisseauPositionComponentListener implements ComponentListener {
+
+        @Override
+        public void componentResized(ComponentEvent ce) {
+        }
+
+        @Override
+        public void componentMoved(ComponentEvent ce) {
+            ((ControllerCosmos) controller).setVaisseauPosition(vaisseau.getLocation());
+        }
+
+        @Override
+        public void componentShown(ComponentEvent ce) {
+        }
+
+        @Override
+        public void componentHidden(ComponentEvent ce) {
         }
     }
 }
