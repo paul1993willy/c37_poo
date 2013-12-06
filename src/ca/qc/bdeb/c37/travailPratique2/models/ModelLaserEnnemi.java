@@ -17,7 +17,7 @@ public class ModelLaserEnnemi extends ModelEntite implements ModelLaser {
     private static ImageIcon iconLaserEnnemi;
 
     @Override
-    public void deplacer() {
+    public synchronized void deplacer() {
         this.setY(this.getBounds().y - 1);
         this.firePropertyChange("Y", this.getBounds().y + 1, this.getBounds().y);
     }

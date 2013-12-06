@@ -39,6 +39,7 @@ public class Cosmos extends javax.swing.JFrame implements View {
     }
 
     private void initComponents() {
+        vaisseauLasers = Collections.synchronizedList(new ArrayList<JLabel>());
         panneau = new JPanel(null);
         background = new JLabel();
         vaisseau = new JLabel();
