@@ -7,6 +7,7 @@
 package ca.qc.bdeb.c37.travailPratique2.models;
 
 import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.net.URL;
 import javax.swing.ImageIcon;
@@ -23,14 +24,15 @@ public class ModelLaserVaisseau extends ModelEntite implements ModelLaser {
     }
 
     private void init() {
-        this.setIcon(this.getClass().getResource("Ressources/laserVaisseau"));
+        this.setIcon(this.getClass().getResource("Ressources/laserVaisseau.png"));
+        this.setBounds(new Rectangle(this.getIcon().getIconWidth(), this.getIcon().getIconHeight()));
     }
 
     @Override
-    public synchronized void deplacer() {
+    public void deplacer() {
         Rectangle oldBounds = new Rectangle(this.getBounds());
 
-        this.getBounds().setLocation(oldBounds.x, oldBounds.y - 1);
+        this.getBounds().setLocation(oldBounds.x, oldBounds.y - 5);
         this.firePropertyChange(ControllerCosmos.VAISSEAU_LASER_BOUNDS, oldBounds, this.getBounds());
     }
 
@@ -45,6 +47,8 @@ public class ModelLaserVaisseau extends ModelEntite implements ModelLaser {
     }
 
     public void setIcon(URL ressource) {
+        ImageIcon oldIcone = iconeLaserVaisseau;
         iconeLaserVaisseau = new ImageIcon(ressource);
+        this.firePropertyChange(ControllerCosmos.VAISSEAU_LASER_ICON, oldIcone, iconeLaserVaisseau);
     }
 }
