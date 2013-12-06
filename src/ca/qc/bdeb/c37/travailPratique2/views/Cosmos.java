@@ -69,6 +69,7 @@ public class Cosmos extends javax.swing.JFrame implements View {
         background.setBounds(new Rectangle(MAX_X, MAX_Y));
         background.setIcon(new ImageIcon(this.getClass().getResource("background.png")));
         vaisseau.setBounds(225, 550, 50, 50);
+        this.setTitle("Travail pratique de Paul-Willy");
         this.setVisible(true);
     }
 
