@@ -31,7 +31,7 @@ public class ModelLaserVaisseau extends ModelEntite implements ModelLaser {
         Rectangle oldBounds = new Rectangle(this.getBounds());
 
         this.getBounds().setLocation(oldBounds.x, oldBounds.y - 1);
-        this.firePropertyChange(ControllerCosmos.LASER_BOUNDS, oldBounds, this.getBounds());
+        this.firePropertyChange(ControllerCosmos.VAISSEAU_LASER_BOUNDS, oldBounds, this.getBounds());
     }
 
     @Override
