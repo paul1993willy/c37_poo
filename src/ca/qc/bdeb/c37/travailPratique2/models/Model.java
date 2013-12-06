@@ -14,7 +14,6 @@ import java.beans.PropertyChangeSupport;
  * @author paulwillyjean
  */
 abstract public class Model {
-    private ArrayList<Controller> controllers;
     private PropertyChangeSupport pcs;
 
     protected Model() {
