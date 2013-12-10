@@ -5,7 +5,6 @@
  */
 
 package ca.qc.bdeb.c37.travailPratique2.views;
-import ca.qc.bdeb.c37.travailPratique2.controllers.Controller;
 import ca.qc.bdeb.c37.travailPratique2.controllers.ControllerCosmos;
 import java.awt.Point;
 import java.awt.Rectangle;
