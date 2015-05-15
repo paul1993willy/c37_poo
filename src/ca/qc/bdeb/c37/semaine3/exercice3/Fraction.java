@@ -135,12 +135,12 @@ public class Fraction
                 this.getDenominateur() == fractionB.getDenominateur());
     }
 
-	@Override
-	public String toString() {
-		return this.getNumerateur() + "/" + this.getDenominateur();
-	}
+    @Override
+    public String toString() {
+            return this.getNumerateur() + "/" + this.getDenominateur();
+    }
 
-	public double toDouble() {
-		return (double) this.getNumerateur() / (double) this.getDenominateur();
-	}
+    public double toDouble() {
+            return (double) this.getNumerateur() / (double) this.getDenominateur();
+    }
 }
