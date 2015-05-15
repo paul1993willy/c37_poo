@@ -27,12 +27,8 @@ public class Fraction
 	}
 
 	public Fraction(int numerateur, int denominateur) {
-		if (denominateur == 0) {
-			throw new IllegalArgumentException("Le denominateur ne doit jamais etre zero");
-		}
-
+                this._setDenominateur(denominateur);
 		this.numerateur  = numerateur;
-		this.denominateur = denominateur;
 	}
 
 	public int getNumerateur() {
@@ -48,14 +44,16 @@ public class Fraction
 		return this.denominateur;
 	}
 
+        private Fraction _setDenominateur(int denominateur) throws IllegalArgumentException {
+            if (denominateur == 0) {
+                throw new IllegalArgumentException("Le denominateur ne doit jamais etre  zero");
+            }
+            
+            this.denominateur = denominateur;
+            return this;
+        }
 	public Fraction setDenominateur(int denominateur) throws IllegalArgumentException {
-		if (denominateur == 0) {
-			throw new IllegalArgumentException("Le denominateur ne doit jamais etre zero");
-		}
-
-		this.denominateur = denominateur;
-
-		return this;
+		return this._setDenominateur(denominateur);
 	}
 
 	public Fraction plus(Fraction fractionB) {
